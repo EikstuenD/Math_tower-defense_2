@@ -22,20 +22,31 @@
 
             <div class="controls">
                 <h3>Velg Tårn</h3>
+                <!-- Basis Tårn -->
                 <div class="tower-btn selected" id="btn-basic" onclick="selectTowerType('basic')">
                     <div class="icon basic"></div>
-                    <span>Basis (50g)</span>
+                    <div class="tower-info">
+                        <span>Basis</span>
+                        <small>50g | Rask</small>
+                    </div>
                 </div>
                 
+                <!-- Algebra Tårn (Låst opp fra start) -->
                 <div class="tower-btn" id="btn-sniper" onclick="selectTowerType('sniper')">
                     <div class="icon sniper"></div>
-                    <span>Algebra (150g)</span>
+                    <div class="tower-info">
+                        <span>Algebra</span>
+                        <small>150g | Sterk</small>
+                    </div>
                 </div>
 
+                <!-- Is Tårn (Må låses opp) -->
                 <div class="tower-btn locked" id="btn-ice" onclick="selectTowerType('ice')">
                     <div class="icon ice"></div>
-                    <span>Brøk-Is (100g)</span>
-                    <small>Lås opp i tre</small>
+                    <div class="tower-info">
+                        <span>Brøk-Is</span>
+                        <small>100g | Treg</small>
+                    </div>
                 </div>
 
                 <div class="action-buttons">
@@ -43,8 +54,8 @@
                     <button class="speed-btn" onclick="toggleSpeed()" id="speedBtn">⏩ 1x</button>
                 </div>
                 
-                <button class="start-wave-btn" id="startBtn" onclick="startNextWave()">⚔️ Start Bølge</button>
-                <p id="status-msg" class="status-waiting">Planleggingsfase: Bygg nå!</p>
+                <button class="start-wave-btn" id="startBtn" onclick="startNextWave()">⚔️ START BØLGE</button>
+                <p id="status-msg" class="status-waiting">Trykk START for å kunne bygge!</p>
             </div>
         </div>
 
@@ -57,11 +68,11 @@
     <!-- Modal for Matteoppgaver -->
     <div id="math-modal" class="modal hidden">
         <div class="modal-content">
-            <h2>Løs oppgaven for å bygge!</h2>
+            <h2>PAUSE - Løs oppgaven!</h2>
             <div class="difficulty-label">Vanskelighetsgrad: <span id="math-diff">1</span></div>
             <div id="math-problem" class="math-problem">2 + 2 = ?</div>
-            <input type="number" id="math-answer" placeholder="Ditt svar...">
-            <button onclick="checkAnswer()">Send Svar</button>
+            <input type="number" id="math-answer" placeholder="Svar her...">
+            <button onclick="checkAnswer()">Svar</button>
             <p id="math-feedback"></p>
         </div>
     </div>
@@ -81,7 +92,7 @@
                 <div class="skill-node" id="node-bonus">
                     <h3>Økonomi</h3>
                     <p>Start med 50 gull ekstra</p>
-                    <button onclick="alert('Kommer snart!')" style="background:#555;">Kommer snart</button>
+                    <button onclick="alert('Kommer i neste versjon!')" style="background:#555;">Kommer snart</button>
                 </div>
             </div>
             <button onclick="toggleSkillTree()" class="close-btn">Lukk</button>
