@@ -29,12 +29,13 @@ body {
 .stats p { margin: 8px 0; font-size: 1.1em; font-weight: bold; color: #ddd; }
 .controls { margin-top: 20px; }
 
+/* Knappestil */
 .tower-btn {
     background: #3a3a3a;
-    padding: 12px;
+    padding: 10px;
     margin-bottom: 10px;
     cursor: pointer;
-    border: 2px solid transparent;
+    border: 2px solid #555;
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -42,54 +43,47 @@ body {
 }
 
 .tower-btn:hover { background: #4a4a4a; }
-.tower-btn.selected { border-color: #f1c40f; background: #444; }
+
+/* VIKTIG: Denne klassen styrer markering av valgt tårn */
+.tower-btn.selected { 
+    border-color: #f1c40f; 
+    background: #555; 
+    box-shadow: 0 0 10px rgba(241, 196, 15, 0.3);
+}
+
 .tower-btn.locked { opacity: 0.4; pointer-events: none; filter: grayscale(1); }
 
-.icon { width: 24px; height: 24px; margin-right: 12px; border-radius: 4px; }
-.icon.basic { background: orange; border: 1px solid #fff; }
-.icon.ice { background: cyan; border: 1px solid #fff; }
-.icon.sniper { background: #e74c3c; border: 1px solid #fff; }
+.tower-info { display: flex; flex-direction: column; }
+.tower-info span { font-weight: bold; }
+.tower-info small { color: #aaa; font-size: 0.85em; }
+
+.icon { width: 30px; height: 30px; margin-right: 12px; border-radius: 4px; border: 1px solid #fff;}
+.icon.basic { background: orange; }
+.icon.ice { background: cyan; }
+.icon.sniper { background: #e74c3c; }
 
 .action-buttons { display: flex; gap: 10px; margin-top: 10px; }
 
 .skill-tree-btn, .speed-btn {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    color: white;
+    flex: 1; padding: 10px; border: none; border-radius: 5px;
+    cursor: pointer; font-weight: bold; color: white;
 }
-
 .skill-tree-btn { background-color: #8e44ad; }
 .speed-btn { background-color: #3498db; }
-.speed-btn.active { background-color: #e67e22; box-shadow: inset 0 0 5px rgba(0,0,0,0.5); }
+.speed-btn.active { background-color: #e67e22; border: 2px solid white; }
 
 .start-wave-btn {
-    width: 100%;
-    padding: 15px;
-    margin-top: 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1.1em;
-    background-color: #27ae60;
-    color: white;
-    transition: 0.2s;
+    width: 100%; padding: 15px; margin-top: 15px;
+    border: none; border-radius: 5px; cursor: pointer;
+    font-weight: bold; font-size: 1.1em;
+    background-color: #27ae60; color: white;
 }
-.start-wave-btn:hover { background-color: #2ecc71; transform: scale(1.02); }
-.start-wave-btn:disabled { background-color: #555; cursor: not-allowed; transform: none; }
+.start-wave-btn:hover { background-color: #2ecc71; }
+.start-wave-btn:disabled { background-color: #555; cursor: not-allowed; opacity: 0.5; }
 
-#status-msg {
-    text-align: center;
-    margin-top: 15px;
-    font-style: italic;
-    font-size: 0.9em;
-}
-.status-waiting { color: #f1c40f; }
-.status-active { color: #e74c3c; }
+#status-msg { text-align: center; margin-top: 15px; font-style: italic; font-size: 0.9em; }
+.status-waiting { color: #e74c3c; } /* Rød tekst når man venter */
+.status-active { color: #f1c40f; font-weight: bold; } /* Gul tekst når man spiller */
 
 .canvas-wrapper { position: relative; }
 canvas { display: block; background-color: #5d7a46; cursor: crosshair; }
@@ -97,7 +91,7 @@ canvas { display: block; background-color: #5d7a46; cursor: crosshair; }
 /* Modals */
 .modal {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.85); /* Mørkere bakgrunn for pause-følelse */
     display: flex; justify-content: center; align-items: center;
     z-index: 100;
 }
@@ -105,10 +99,9 @@ canvas { display: block; background-color: #5d7a46; cursor: crosshair; }
 .modal-content {
     background: #333; padding: 30px; border-radius: 12px;
     text-align: center; border: 2px solid #f1c40f; min-width: 320px;
-    box-shadow: 0 0 20px #000;
 }
 .math-problem { font-size: 2.5em; margin: 20px 0; font-weight: bold; color: #f1c40f; }
-input[type="number"] { padding: 12px; font-size: 1.3em; width: 160px; margin-bottom: 20px; border-radius: 5px; border: none; text-align: center; }
+input[type="number"] { padding: 12px; font-size: 1.3em; width: 160px; margin-bottom: 20px; text-align: center; }
 button { padding: 10px 20px; cursor: pointer; border-radius: 5px; border: none; font-weight: bold; font-size: 1em; }
 .skill-tree { display: flex; gap: 20px; justify-content: center; margin: 20px 0; }
 .skill-node { background: #444; padding: 20px; border: 1px solid #666; border-radius: 8px; width: 200px; }
