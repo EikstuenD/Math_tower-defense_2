@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Tower Defense</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <!-- Sidebar med info og kontroller -->
+        <div class="sidebar">
+            <h1>Math TD</h1>
+            
+            <div class="stats">
+                <p>❤️ Liv: <span id="lives">20</span></p>
+                <p>💰 Gull: <span id="gold">100</span></p>
+                <p>✨ XP: <span id="xp">0</span></p>
+                <p>🌊 Bølge: <span id="wave">1</span></p>
+            </div>
+
+            <div class="controls">
+                <h3>Velg Tårn</h3>
+                <div class="tower-btn selected" id="btn-basic" onclick="selectTowerType('basic')">
+                    <div class="icon basic"></div>
+                    <span>Basis (50g)</span>
+                </div>
+                
+                <div class="tower-btn locked" id="btn-ice" onclick="selectTowerType('ice')">
+                    <div class="icon ice"></div>
+                    <span>Brøk-Is (100g)</span>
+                    <small>Lås opp i ferdighetstre</small>
+                </div>
+
+                <div class="tower-btn locked" id="btn-sniper" onclick="selectTowerType('sniper')">
+                    <div class="icon sniper"></div>
+                    <span>Algebra-Laser (200g)</span>
+                    <small>Lås opp i ferdighetstre</small>
+                </div>
+
+                <button class="skill-tree-btn" onclick="toggleSkillTree()">🎓 Ferdighetstre</button>
+                <button class="start-wave-btn" onclick="startNextWave()">⚔️ Start Bølge</button>
+            </div>
+        </div>
+
+        <!-- Spillbrettet -->
+        <div class="canvas-wrapper">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+            <div id="message-overlay">Klikk på et grønt felt for å bygge!</div>
+        </div>
+    </div>
+
+    <!-- Modal for Matteoppgaver -->
+    <div id="math-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Løs oppgaven for å bygge!</h2>
+            <div class="difficulty-label">Vanskelighetsgrad: <span id="math-diff">1</span></div>
+            <div id="math-problem" class="math-problem">2 + 2 = ?</div>
+            <input type="number" id="math-answer" placeholder="Ditt svar...">
+            <button onclick="checkAnswer()">Send Svar</button>
+            <p id="math-feedback"></p>
+        </div>
+    </div>
+
+    <!-- Modal for Ferdighetstre -->
+    <div id="skill-modal" class="modal hidden">
+        <div class="modal-content large">
+            <h2>🎓 Matematikk Ferdighetstre</h2>
+            <p>Bruk XP tjent fra kamper og matteoppgaver til å låse opp ny teknologi.</p>
+            <p>Din XP: <span id="skill-xp">0</span></p>
+            
+            <div class="skill-tree">
+                <div class="skill-node" id="node-ice">
+                    <h3>Kvantitet (Brøk)</h3>
+                    <p>Låser opp Brøk-Is tårn (Sinkende effekt)</p>
+                    <button onclick="unlockSkill('ice', 100)">Lås opp (100 XP)</button>
+                </div>
+                <div class="skill-node" id="node-sniper">
+                    <h3>Algebra</h3>
+                    <p>Låser opp Algebra-Laser (Høy skade)</p>
+                    <button onclick="unlockSkill('sniper', 200)">Lås opp (200 XP)</button>
+                </div>
+            </div>
+            <button onclick="toggleSkillTree()" class="close-btn">Lukk</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
