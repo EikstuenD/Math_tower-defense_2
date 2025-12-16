@@ -1,0 +1,142 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #222;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-container {
+    display: flex;
+    background-color: #333;
+    border: 4px solid #555;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.sidebar {
+    width: 250px;
+    padding: 20px;
+    background-color: #2a2a2a;
+    border-right: 2px solid #444;
+    display: flex;
+    flex-direction: column;
+}
+
+.stats p {
+    margin: 10px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.controls {
+    margin-top: 30px;
+}
+
+.tower-btn {
+    background: #444;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.tower-btn:hover { background: #555; }
+.tower-btn.selected { border-color: #f1c40f; background: #555; }
+.tower-btn.locked { opacity: 0.5; pointer-events: none; filter: grayscale(1); }
+
+.icon { width: 20px; height: 20px; margin-right: 10px; border-radius: 50%; }
+.icon.basic { background: orange; }
+.icon.ice { background: cyan; }
+.icon.sniper { background: red; }
+
+.skill-tree-btn, .start-wave-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.skill-tree-btn { background-color: #9b59b6; color: white; }
+.start-wave-btn { background-color: #27ae60; color: white; margin-top: 20px;}
+.start-wave-btn:hover { background-color: #2ecc71; }
+
+.canvas-wrapper {
+    position: relative;
+}
+
+canvas {
+    display: block;
+    background-color: #88c070; /* Gressfarge */
+    cursor: crosshair;
+}
+
+/* Modals */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.hidden { display: none; }
+
+.modal-content {
+    background: #444;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #f1c40f;
+    min-width: 300px;
+}
+
+.math-problem {
+    font-size: 2.5em;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #f1c40f;
+}
+
+input[type="number"] {
+    padding: 10px;
+    font-size: 1.2em;
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.skill-tree {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.skill-node {
+    background: #333;
+    padding: 20px;
+    border: 1px solid #777;
+    border-radius: 8px;
+    width: 200px;
+}
+
+.close-btn {
+    background: #c0392b;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+}
