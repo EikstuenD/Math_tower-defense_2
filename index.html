@@ -15,7 +15,7 @@
             
             <div class="stats">
                 <p>❤️ Liv: <span id="lives">20</span></p>
-                <p>💰 Gull: <span id="gold">100</span></p>
+                <p>💰 Gull: <span id="gold">150</span></p>
                 <p>✨ XP: <span id="xp">0</span></p>
                 <p>🌊 Bølge: <span id="wave">1</span></p>
             </div>
@@ -27,27 +27,30 @@
                     <span>Basis (50g)</span>
                 </div>
                 
+                <div class="tower-btn" id="btn-sniper" onclick="selectTowerType('sniper')">
+                    <div class="icon sniper"></div>
+                    <span>Algebra (150g)</span>
+                </div>
+
                 <div class="tower-btn locked" id="btn-ice" onclick="selectTowerType('ice')">
                     <div class="icon ice"></div>
                     <span>Brøk-Is (100g)</span>
-                    <small>Lås opp i ferdighetstre</small>
+                    <small>Lås opp i tre</small>
                 </div>
 
-                <div class="tower-btn locked" id="btn-sniper" onclick="selectTowerType('sniper')">
-                    <div class="icon sniper"></div>
-                    <span>Algebra-Laser (200g)</span>
-                    <small>Lås opp i ferdighetstre</small>
+                <div class="action-buttons">
+                    <button class="skill-tree-btn" onclick="toggleSkillTree()">🎓 Ferdigheter</button>
+                    <button class="speed-btn" onclick="toggleSpeed()" id="speedBtn">⏩ 1x</button>
                 </div>
-
-                <button class="skill-tree-btn" onclick="toggleSkillTree()">🎓 Ferdighetstre</button>
-                <button class="start-wave-btn" onclick="startNextWave()">⚔️ Start Bølge</button>
+                
+                <button class="start-wave-btn" id="startBtn" onclick="startNextWave()">⚔️ Start Bølge</button>
+                <p id="status-msg" class="status-waiting">Planleggingsfase: Bygg nå!</p>
             </div>
         </div>
 
         <!-- Spillbrettet -->
         <div class="canvas-wrapper">
             <canvas id="gameCanvas" width="800" height="600"></canvas>
-            <div id="message-overlay">Klikk på et grønt felt for å bygge!</div>
         </div>
     </div>
 
@@ -67,7 +70,6 @@
     <div id="skill-modal" class="modal hidden">
         <div class="modal-content large">
             <h2>🎓 Matematikk Ferdighetstre</h2>
-            <p>Bruk XP tjent fra kamper og matteoppgaver til å låse opp ny teknologi.</p>
             <p>Din XP: <span id="skill-xp">0</span></p>
             
             <div class="skill-tree">
@@ -76,10 +78,10 @@
                     <p>Låser opp Brøk-Is tårn (Sinkende effekt)</p>
                     <button onclick="unlockSkill('ice', 100)">Lås opp (100 XP)</button>
                 </div>
-                <div class="skill-node" id="node-sniper">
-                    <h3>Algebra</h3>
-                    <p>Låser opp Algebra-Laser (Høy skade)</p>
-                    <button onclick="unlockSkill('sniper', 200)">Lås opp (200 XP)</button>
+                <div class="skill-node" id="node-bonus">
+                    <h3>Økonomi</h3>
+                    <p>Start med 50 gull ekstra</p>
+                    <button onclick="alert('Kommer snart!')" style="background:#555;">Kommer snart</button>
                 </div>
             </div>
             <button onclick="toggleSkillTree()" class="close-btn">Lukk</button>
